@@ -17,40 +17,48 @@ const name = [
   'Александр',
   'Екатерина'
 ];
-const avatar = [6];
 const keksId = [25];
-const comments = ['закат', 'дерево', 'город', 'интерьер', 'картина']
 
 const getRandomInteger = (a, b) => {
+
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
   const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
 };
-const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
+
+const getRandomIntegerUnigueID = (a = 0,b = 1000)=>{
+  let IntegerUnigueID = [];
+  return function (){
+    let randomId = 0;
+    do {
+      randomId = getRandomInteger(a,b);
+    } while (IntegerUnigueID.includes(randomId));
+    IntegerUnigueID.push(randomId);
+    return randomId;
+  };
+};
+
+const idphoto = getRandomIntegerUnigueID();
+const idImg = getRandomIntegerUnigueID(0, 25);
+const idcommrnts = getRandomIntegerUnigueID();
+
+const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)]
 
 const likesNumber = getRandomInteger(15, 200);
 
+const createcomments = () =>({
+  likes: getRandomInteger(15,200),
+  id: idcommrnts(),
+  descriptions: getRandomArrayElement(name),
+});
+
 const createWizard = () => ({
-  id: getRandomArrayElement(keksId),
-  url: 'photos/' + getRandomArrayElement(keksId) + '.png',
-  likes: getRandomArrayElement(likesNumber),
-  comments: 'описание ' + getRandomArrayElement(comments),
-  avatar: 'img/avatar-' + getRandomArrayElement(avatar) + '.svg',
-  message: getRandomArrayElement(message),
-  name: getRandomArrayElement(name),
+  id: idphoto(),
+  url: `photos/${idImg()}.png`,
+  likes: getRandomInteger(15,200),
+  descriptions: getRandomArrayElement(message),
+  comments: Array.from({ length: 30 }, createcomments),
 });
 const similarWizards = Array.from({ length: keksId }, createWizard);
 console.log(similarWizards);
-
-
-// {
-//   id: 135,
-//   avatar: 'img/avatar-6.svg',
-//   message: 'В целом всё неплохо. Но не всё.',
-//   name: 'Артём',
-// }
-
-// url, строка — адрес картинки вида photos/{{i}}.jpg, где {{i}} — это число от 1 до 25. Адреса картинок не должны повторяться.
-
-// description, строка — описание фотографии. Описание придумайте самостоятельно.
