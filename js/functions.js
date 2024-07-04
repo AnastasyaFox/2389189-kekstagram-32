@@ -31,23 +31,23 @@
 // } else {
 //   console.log(false);
 // };
-let firstDate = '14:00';
-let secondDate = '17:30';
+// let firstDate = '14:00';
+// let secondDate = '17:30';
 
-let getDate = (string) => new Date(0, 0,0, string.split(':')[0], string.split(':')[1]); //получение даты из строки (подставляются часы и минуты
+// let getDate = (string) => new Date(0, 0,0, string.split(':')[0], string.split(':')[1]); //получение даты из строки (подставляются часы и минуты
 
-function fn(hour, minutes) {
-  if (hour * 60 >= minutes) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// function fn(hour, minutes) {
+//   if (hour * 60 >= minutes) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
-console.log(fn(3.5, 90));
-console.log(fn(2, 120));
-console.log(fn(0.5, 90));
-console.log(fn (-6, 90));
-console.log(fn(9.5, 900));
+// console.log(fn(3.5, 90));
+// console.log(fn(2, 120));
+// console.log(fn(0.5, 90));
+// console.log(fn (-6, 90));
+// console.log(fn(9.5, 900));
 
 

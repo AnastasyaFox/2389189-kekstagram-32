@@ -1,3 +1,4 @@
-import {createDataArray} from './data.js';
+import {createObjects} from './data.js';
 
-createDataArray();
+console.log(createObjects);
+

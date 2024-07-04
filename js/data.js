@@ -21,16 +21,8 @@ const name = [
 ];
 const keksId = [25];
 
-const getRandomInteger = (a, b) => {
-
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
-
 const getRandomIntegerUnigueID = (a = 0,b = 1000)=>{
-  let IntegerUnigueID = [];
+  const IntegerUnigueID = [];
   return function (){
     let randomId = 0;
     do {
@@ -41,13 +33,11 @@ const getRandomIntegerUnigueID = (a = 0,b = 1000)=>{
   };
 };
 
-const idphoto = getRandomIntegerUnigueID();
+const idPhoto = getRandomIntegerUnigueID();
 const idImg = getRandomIntegerUnigueID(0, 25);
 const idcommrnts = getRandomIntegerUnigueID();
 
 const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)]
-
-const likesNumber = getRandomInteger(15, 200);
 
 const createcomments = () =>({
   likes: getRandomInteger(15,200),
@@ -55,12 +45,13 @@ const createcomments = () =>({
   descriptions: getRandomArrayElement(name),
 });
 
-const createWizard = () => ({
-  id: idphoto(),
+const createObject = () => ({
+  id: idPhoto(),
   url: `photos/${idImg()}.png`,
   likes: getRandomInteger(15,200),
   descriptions: getRandomArrayElement(message),
   comments: Array.from({ length: 30 }, createcomments),
 });
-const similarWizards = Array.from({ length: keksId }, createWizard);
-console.log(similarWizards);
+export const createObjects = Array.from({ length: keksId }, createObject);
+
+
