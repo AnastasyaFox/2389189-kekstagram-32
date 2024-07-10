@@ -37,7 +37,7 @@ const idPhoto = getRandomIntegerUnigueID();
 const idImg = getRandomIntegerUnigueID(0, 25);
 const idcommrnts = getRandomIntegerUnigueID();
 
-const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)]
+const getRandomArrayElement = (elements) => elements[getRandomInteger(0, elements.length - 1)];
 
 const createcomments = () =>({
   likes: getRandomInteger(15,200),
@@ -45,13 +45,13 @@ const createcomments = () =>({
   descriptions: getRandomArrayElement(name),
 });
 
-const createObject = () => ({
+const createKeksObject = () => ({
   id: idPhoto(),
   url: `photos/${idImg()}.png`,
   likes: getRandomInteger(15,200),
   descriptions: getRandomArrayElement(message),
   comments: Array.from({ length: 30 }, createcomments),
 });
-export const createObjects = Array.from({ length: keksId }, createObject);
+const createObject = Array.from({ length: keksId }, createKeksObject);
 
-
+export {createObject};
