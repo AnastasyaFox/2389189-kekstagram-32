@@ -17,3 +17,5 @@ picture.forEach(({id, url, description, likes, comments}) => {
 });
 
 picturesContainer.append(fragment);
+
+export {picture};
