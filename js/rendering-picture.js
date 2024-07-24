@@ -51,8 +51,6 @@ similarPicture.forEach(({id, url, description, likes, comments}) => {
       openBigPicture({url, description, likes, comments});
     }
   });
-
-  return pictureElement;
 });
 
 picturesContainer.append(similarListFragment);

@@ -7,15 +7,18 @@ const renderCommentsList = (comments) => {
   comments.forEach((comment) => {
     const newCommentContainer = document.createElement('li');
     const userAvatar = document.createElement('img');
+    const textComment = document.createElement('p');
+
     newCommentContainer.className = 'social__comment';
     userAvatar.className = 'social__picture';
+    textComment.className = 'social__text';
+
     userAvatar.src = comment.avatar;
     userAvatar.alt = comment.name;
     userAvatar.width = indefications.USERAVATARWIDTH;
     userAvatar.height = indefications.USERAVATARHEIGTH;
-    const textComment = document.createElement('p');
-    textComment.className = 'social__text';
     textComment.textContent = comment.message;
+
     newCommentContainer.appendChild(userAvatar);
     newCommentContainer.appendChild(textComment);
     commentsList.appendChild(newCommentContainer);
